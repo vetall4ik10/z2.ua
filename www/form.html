@@ -1,0 +1,35 @@
+<?php if (empty($_SESSION['id'])){?>
+	<div class="block_login">
+		<form  method="post">
+			login or email
+			<br >
+			<input name="data" type="text" size="20" maxlength="50"/>
+			<br>
+			password
+			<br>
+			<input name="password" type="password" size="20" maxlength="50"/>
+			<input type="submit" value="Connected" />
+			<br />
+			<a href="register.php">Sign up</a>
+			<br />
+			<?php
+			if($error == 1) {
+				print('Enter the data');
+			}
+			elseif($error == 2) {
+				print('Invalid username / e-mail or password.');
+				}?>
+		</form>
+	</div>
+<?php
+}
+else { ?>
+	<div class = "block_login">
+	<h2> Hello, <?php print $_SESSION['login']; ?> ! </h2>
+	<form method = "post">
+		<input name = 'unset' type = "hidden" value = "1"/>
+		<input type = "submit" value = "exit">
+	</form>
+	</div>
+<?php
+} ?>
